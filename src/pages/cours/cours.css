@@ -1,0 +1,23 @@
+.notcours{
+    display: flex;
+    flex-direction: column;
+}
+.notcours span{
+    width:60%;
+}
+.notcours a{
+    width:50%;
+    font-size:110%;
+    color: #22a2e3;
+    font-weight: 600;
+    text-decoration: underline;
+    padding: 2%;
+}
+.notcours a:hover{
+    width:50%;
+    font-size:110%;
+    color: #042331;
+    font-weight: 800;
+    text-decoration: none;
+    padding: 2%;
+}

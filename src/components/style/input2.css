@@ -1,0 +1,47 @@
+
+.Input{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: auto;
+    border: none;
+    position: relative;
+    
+}
+
+.lab{
+   
+    color: rgba(0, 0, 0, 0.65);
+    color: #22a2e3;
+    font: 900;
+    font-size: 130%;
+    font-weight: 500;
+}
+.centerBlock{
+    display: block;
+    width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.Input .inputt{
+    width: 80%;
+    height: 50px;
+    box-shadow: none;
+    border-bottom: none;
+    background-color: rgba(34, 162, 227, 0.1) ;
+    border-radius: 10px;
+    padding-left: 3%;
+}
+/* rgba(0, 0, 0, 0.6) */
+
+.Input .inputt:hover{
+    box-shadow: none;
+    border-bottom: none;
+    border:none;
+    ; 
+    background-color: rgba(34, 162, 227, 0.05) 
+}
+.Input .inputt:active{
+    background-color: rgba(34, 162, 227, 0.04) ;
+    border: none;
+}

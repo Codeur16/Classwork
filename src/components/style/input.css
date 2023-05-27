@@ -1,0 +1,44 @@
+.input {
+  /* margin: 1em 0 1em 0; */
+  /*max-width: 190px;*/
+  width: 80%;
+  position: relative;
+
+}
+
+.input input {
+  font-size: 100%;
+  padding: 0em;
+  outline: none;
+  border: 5px solid rgb(141, 109, 255);
+  background-color: transparent;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.input label {
+  font-size: 100%;
+  position: absolute;
+  left: 0;
+  top: 20px;
+  padding-top: 0.1em;
+  padding-bottom: -5px;
+  margin-left: 0.1em;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  color: #22a2e3;
+}
+
+.input :is(input:focus, input:valid)~label {
+  transform: translateY(-50%) scale(.9);
+  margin: 0em;
+  margin-left: 1.3em;
+  padding-top: -5%;
+  background-color:none;
+  margin-top: -5%;
+}
+
+.inputGroup :is(input:focus, input:valid) {
+  border-color: #22a2e3;
+ 
+}

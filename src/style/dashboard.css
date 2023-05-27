@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Laila&display=swap');
+
+*{
+    font-family: laila;
+}
+.menu-item{
+    /* margin-top: 2%;
+    width: 30%;
+    height: 80px;
+    position: absolute; */
+    margin-left:3%;
+    position: relative;
+}
+.menu-box{
+    display: flex;
+   justify-content: center;
+   margin-top: 2%;
+   border-bottom: 5px  solid #22a2e3;
+   width: 100%;
+   height: 110px;
+   position: relative;
+   
+}
+.menu{
+    width: 70%;
+    height: auto;
+    margin-top: -1.5%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    /* position:; */
+    left:auto;
+    /* position: relative; */
+
+}
+
+/* body*/
+.Body{
+    width: 100%;
+    height: auto;
+    display: block;
+    background-color: white;
+}
+.Body-left{
+    width: 75%;
+}
+.Body-rigth{
+    width: 25%;
+    background-color:none;
+}
+/* SECTION COURS*/
+.centrer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.centerBlock{
+    display: block;
+    width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cours{
+    display: block;
+    width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+    
+}
+        .cours-title{
+            display: flex;
+            justify-content:flex-start;
+            align-items: center;
+        }
+                .circle{
+                    background-color: linear-gradient(180deg, rgba(34, 162, 227, 0.44) 0%, #22A2E3 100%);;
+                    width: 8%;
+                    height: auto;
+                    margin-top: -2%;
+                }
+                .cours-title h3{
+                    font-size: 200%;
+                    font-weight: bold;
+                    color: rgba(0, 0, 0, 0.6) ;
+                    padding-left: 5%;
+                }
+        /* line */
+
+
+
+
+          
+        .line {
+            position: relative;
+            height: 4px;
+            background-color:rgba(0, 0, 0, 0.4);
+            margin-bottom: 25px;
+            
+          }
+          
+          .line::before,
+          .line::after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            /* border: 2px solid rgba(0, 0, 0, 0.4); */
+            background-color:rgba(0, 0, 0, 0.4);
+            transform: rotate(45deg);
+            top: -4px;
+          }
+          
+          .line::before {
+            left: -6px;
+          }
+          
+          .line::after {
+            right: -6px;
+          }
+          /* cours box*/
+          .cours-box{
+            display: block;
+            width: 90%;
+            justify-content:space-between;
+            /* background-color: rgba(0,0,0,0.5); */
+            text-align: center;
+            
+          }
+                .cours-list{
+                    display: block;
+                    margin-top: 2%;
+                }
+                        .cours-item{
+                            width: 100%;
+                            height: 100px;
+                            border: 1px solid rgba(0, 0, 0, 0.2) ;
+                            border-bottom: 5px solid rgba(34, 162, 227, 0.5)  ;
+                            border-radius: 0px 0px 15px 15px;
+                            padding: 2%;
+                            margin-top: 5%;
+                            text-align: start;
+                        }
+                               .cours-item h5 {
+                                    color: #22A2E3;
+                                    font-size: 120%;
+                                    font-weight: 900;
+                                }
+                                        .cours-item h5 span{
+                                            color: rgba(0, 0, 0, 0.5);
+                                            font-size: 100%;
+                                            font-weight: 600;
+                                        }
+                                .cours-item p{
+                                    color: rgba(0, 0, 0, 0.5);
+                                            font-size: 90%;
+                                            font-weight: 500;
+                                }
+                .bouton{
+
+                }
+            .Body-rigth{
+                border-left: 5px solid #22A2E3;
+            }
+          .content{
+            width: 80%;
+            margin: auto;
+            padding: 10%;
+          }
+            .content h1{
+                font-size: 160%;
+                font-weight: 600;
+                color: #22A2E3;
+                font-style: italic;
+                text-decoration: underline;
+            }
+/* .trait{
+    position: absolute;
+width: 500px;
+height: 0px;
+
+border: 5px solid rgba(0, 0, 0, 0.5);
+transform: rotate(0deg);
+} */

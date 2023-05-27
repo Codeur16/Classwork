@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Laila&display=swap');
+
+*{
+    font-family: laila;
+}
+
+
+
+
+ /* NAVBAR DEBUT */
+
+
+
+.navbar{
+    box-shadow:0px 1px 5px rgba(0, 0, 0, 0.1);
+    /* , inset 0px -5px 10px rgba(34, 162, 227, 0.25); */
+    /* box-shadow: 0px 5px 10px #22a2e3; */
+}
+.logo-box{
+    width: auto;
+    height: auto;
+}
+.logo-box:hover{
+   
+    background-color:  rgba(0, 0, 0, 0.05);
+}
+.text-custom{
+    color:#22a2e3;
+    font-weight: bold;
+    font-size: 160%;
+    padding-top: 2%;
+    margin-left: -2%;
+   
+
+}    
+.box-title{
+    box-sizing: content-box;
+    position: relative;
+    border-width: 2px 0px 7px 0px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 17%;
+    height: 6%;
+  
+}
+.box-title h3{
+    font-size: 140%;
+    width: 100%;
+    text-align: center;
+    margin-left:5%;
+    margin-top: 3%;
+    
+}
+.img-box{
+    
+    width: 30%;
+    position:static;
+    text-align: right;
+    margin-right: -5%;
+    margin-left: 5%;
+    padding-bottom: -5px;
+}
+.img-box div{
+    width: 22%;
+    height: 10%;
+
+  }
+  .icon1{
+    width: 35%;
+  }
+  .icon2{
+    width: 30%;
+  }
+  .icon3{
+    width: 50%;
+}
+.icon1:hover,.icon2:hover,.icon3:hover{
+background-color: rgba(0, 0, 0, 0.05);
+height: 50%;
+} 
+
+@media screen and (min-width: 767px) and (max-width: 999px){
+    .logo-custom{
+        width: 90%;
+        height: 90%;
+        margin-top: -25%;
+    }
+    .text-custom{
+        font-size: 190%;
+        text-align: left;
+        margin-left: -10%;
+        margin-top: -3%;
+    }
+    .box-title{
+        width: 25%;
+        height: 5%;
+      
+    }
+}
+
+
+@media screen and (min-width: 450px) and (max-width: 767px) {
+    .logo-box{
+        width: 100%;
+    }
+    .logo-custom{
+        width: 100%;
+        margin-top: -40%;    
+    }
+    .text-custom{
+        text-align: left;
+        margin-left: -10%;
+        margin-top: 0%;
+        font-size: 15px;
+    }
+    .box-title{
+        border-width: 1px 0px 5px 0px;
+        width: 30%;
+        height: 5%;
+        margin-top: 0%;
+        padding-top: 1%;
+      
+    }
+    .box-title h3{
+        font-size: 100%;
+        width: 100%;
+        margin-top: 0%;
+        
+    }
+}
+@media screen  and (max-width: 450px) {
+    .logo-box{
+        width: 100%;
+    }
+    .logo-custom{
+        width: 80%;
+        margin-bottom:  10%;    
+    }
+    .text-custom{
+        text-align: left;
+        margin-left: -40%;
+        margin-top: 25%;
+        font-size: 60%;
+    }
+    .box-title{
+        border-width: 1px 0px 5px 0px;
+        width: 30%;
+        height: 4%;
+        margin-top: 0%;
+        padding-top: 0%;
+}.box-title h3{
+    font-size: 60%;
+    width: 100%;
+    margin-top: 7%;
+    
+}
+.icon3{
+    width: 80%;
+    margin-top: -10%;
+}
+}
+@media screen and  (max-width: 299px){
+    .logo-box{
+        width: 200%;
+    }
+    .logo-custom{
+        width: 100px;
+        height: 100px;
+    }
+    .text-custom{
+        display: none;
+    }
+    .box-title{
+        border-width: 1px 0px 4px 0px;
+        width: 40%;
+        height: 4%;
+        margin-top: 0%;
+        padding-top: 0%;
+}
+.box-title h3{
+    color: #22a2e3;
+    font-size: 100%;
+    width: 100%;
+    text-align: center;
+    margin-left:5%;
+    margin-top: 3%;
+    
+}
+}
+.center-contenu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .centrer-element {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+
+
+
+
+
+
+
+ /* NAVBAR FIN */
+
+
+
+
+ /* FIXED LEFT SITEBAR */
+
+ 
