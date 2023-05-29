@@ -57,7 +57,7 @@ return(
               <li className="" style={{marginTop:"3%",marginLeft:"2%"}}>
                 <Link to="/login" ><Bouton name="Se connecter" /></Link>
               </li>
-              <li className="nav-item" style={{marginTop:"1%",marginLeft:"2%", width:"50px", height:"50%"}}>
+              {/* <li className="nav-item" style={{marginTop:"1%",marginLeft:"2%", width:"50px", height:"50%"}}>
               
               <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="280%" height="280%" fillRule="nonzero">
   <defs>
@@ -85,7 +85,7 @@ return(
   </g>
 </svg>
 
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

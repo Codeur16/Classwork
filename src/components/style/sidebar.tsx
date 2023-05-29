@@ -9,7 +9,7 @@ const Sidebar: FunctionComponent = () => {
         setShow(!show);
     }
 return(
-    <div>
+    <div >
         
         <div className={show? "sidebar":"sidebarclose"}>
             <div className="d-flex sidebar-header">

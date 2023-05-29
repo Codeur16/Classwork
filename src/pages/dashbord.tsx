@@ -7,7 +7,6 @@ import Footer from "../components/footerbar";
 import { Link } from "react-router-dom";
 // const [showSidebar, setShowSidebar] = useState(false);
 const dashboard:FunctionComponent =()=>{
-
     //const user
 
     // const handleButtonClick = () => {

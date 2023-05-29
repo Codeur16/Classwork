@@ -9,7 +9,7 @@
     height: 80px;
     position: absolute; */
     margin-left:3%;
-    position: relative;
+    position:relative;
 }
 .menu-box{
     display: flex;
@@ -122,7 +122,7 @@
           /* cours box*/
           .cours-box{
             display: block;
-            width: 90%;
+            width: 100%;
             justify-content:space-between;
             /* background-color: rgba(0,0,0,0.5); */
             text-align: center;
@@ -131,9 +131,14 @@
                 .cours-list{
                     display: block;
                     margin-top: 2%;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
                 }
                         .cours-item{
-                            width: 100%;
+                            width: 170%;
                             height: 100px;
                             border: 1px solid rgba(0, 0, 0, 0.2) ;
                             border-bottom: 5px solid rgba(34, 162, 227, 0.5)  ;

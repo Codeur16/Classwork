@@ -59,6 +59,11 @@ const handleNextQuestion = () => {
   SaveQuestion(currentQuestion);
   setCurrentQuestion(currentQuestion + 1);
 };
+const handleLasttQuestion = () => {
+  SaveQuestion(currentQuestion);
+  setShowQuestion(false);
+  
+};
  const handlePreviousQuestion = () => {
     setCurrentQuestion(currentQuestion - 1);
   };
@@ -67,10 +72,15 @@ const handleNombreDeQuestionChange = (event: React.ChangeEvent<HTMLInputElement>
     setNombreDeQuestions(parseInt(event.target.value));
 }
 
+
+
+// enregistrement des question
+
+
 const SaveQuestion =(currentIndex:number)=>{
  QuestionsItem.id=currentIndex;
- QuestionsItem.choix=choices;
- console.log(QuestionsItem);
+ QuestionsItem.choix=choices.splice(0,choices.length);
+//  console.log(QuestionsItem);
  Questions.splice(currentIndex, 1, QuestionsItem);
 
   //Questions.push(QuestionsItem);
@@ -83,23 +93,32 @@ const SaveQuestion =(currentIndex:number)=>{
     PointQuestion:0,
     choix:choices
 })
-console.log(choices);
-if(QuestionsItem){
-console.log(QuestionsItem);}
+// console.log(choices);
+// if(QuestionsItem){
+// console.log(QuestionsItem);}
+// if(Questions.splice(currentIndex, 1, QuestionsItem)){
+// setChoices( choices.splice(0,choices.length));
+// }
+setCurrentChoice(0);
 }
+
+
+
 /* Declarationdes variables */
   let Input;
    let choix;
-   let ListeQuestion;
    let numChoix=0;
 
 
+
+
+// questions 
 
    const RenderQuestionItem=()=>{
     if( QuestionsItem.Type ==="text"){
         // Question.pointsQuestion=quiz.pointsQuestion;
      return  ( Input=(
-            <div>
+            <div style={{display:"flex",flexDirection:"column",alignItems:"flex-start",marginLeft:"0%"}} className="centrer boxQuiz">
                 <Input2 
                 label="Enonce de la question" 
                 id="question" 
@@ -146,7 +165,7 @@ console.log(QuestionsItem);}
     }
     else if(QuestionsItem.Type ==="select") {
        return ( Input=(
-            <div>
+        <div style={{display:"flex",flexDirection:"column",alignItems:"flex-start",marginLeft:"0%"}} className="centrer boxQuiz">
                 <Input2 
                 label="Enonce de la question" 
                 id="question" 
@@ -230,7 +249,7 @@ console.log(QuestionsItem);}
 
    const ListeQuestions=()=>{
    return (<div key={currentQuestion}>
-    <label>Question {currentQuestion+1}:</label>
+    <label className="question-text">Question {currentQuestion+1}:</label>
     {/* <h5>Selectionner le type de reponse pour cette question:</h5> */}
                         
                        
@@ -257,7 +276,17 @@ console.log(QuestionsItem);}
    //);
   //}
 
-
+// verification des entree
+const checkInput =()=>{
+  if(chapitre===''){
+    // alert("entrer le titre de l'evaluation!!");
+  }
+  else{
+    setShowButton(false);
+    setShowQuestion(true);
+    console.log('chapitre:'+chapitre,'NombreQuestions: '+nombreDeQuestions); 
+  }
+}
 
 
   /**Formulaire pour en registrer les choix des question de type select */
@@ -354,22 +383,26 @@ let QuestionListe = (props: { n: number; renderType: any }) => {
         <div className="boxQuiz centrerBox">
             
             <div>
-                    <h1 className="centrer" style={{marginTop:"4%"}}>Creer une evaluation</h1>
-                    <label className="centrer" > Entrer les information de l'evaluation</label>
+                   
                 <form  onSubmit={handleSubmit} className="centrerBox">
-                    < Input2
+                {showButton&&(    
+                  <>
+                   <h1 className="centrer" style={{marginTop:"4%"}}>Creer une evaluation</h1>
+                    <label className="centrer" > Entrer les information de l'evaluation</label>
+                < Input2 
                         label="Titre de l'evaluation:" 
                         id="titre" 
                         name="titre" 
                         type="text" 
                         value={chapitre.toString()}
+                        
                         onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                             if (event && event.target) {
                             setChapitre(event.target.value.toString())
                         }}} />
 
-{showButton&&( 
-                <>  <Input2
+ 
+                  <Input2
                         label="Nombre de questions:" 
                         id="totalQuestions" 
                         name="totalQuestions" 
@@ -384,22 +417,26 @@ let QuestionListe = (props: { n: number; renderType: any }) => {
 
                   
                         <div style={{width:"50%",marginLeft:"25%"}} className="centrer">
-                        <Bouton name="SUIVANT" onClick={()=>{setShowButton(false); console.log('chapitre:'+chapitre,'NombreQuestions: '+nombreDeQuestions); setShowQuestion(true)}}/>
+                        <Bouton name="SUIVANT" onClick={()=>{  checkInput()}}/>
                         </div></>)}
 
                          {/* Affichage des question */}
                         {showQuestion&&(
                           <>
-                           <div >
-                              {currentQuestion > 0 && (
-                                <label  style={{width:"40%",marginLeft:"20%",marginTop:"5%",position:"relative"}} className="centrerBox"> <Bouton name="precedent" onClick={()=>{handlePreviousQuestion();}} /></label>
+                          <h1 className="question-text-1 centrer" style={{marginTop:"7%"}}>{chapitre}</h1>
+                           <div style={{marginLeft:"0%",marginTop:"5%"}}>
+                             <div style={{display:"flex",flexDirection:"row",justifyContent:"center",alignItems:"center"}}> {currentQuestion > 0 && (
+                                <label  className="boutonItem centrerBox"> <Bouton name="precedent" onClick={()=>{handlePreviousQuestion();}} /></label>
                               )}
-                              {currentQuestion < nombreDeQuestions? (
-                                <label style={{width:"40%",marginLeft:"40%",marginBottom:"5%",position:"relative"}} className="centrer"><Bouton name="Suivant" onClick={()=>{handleNextQuestion(); }} /></label>
+                              <div >{currentQuestion < nombreDeQuestions-1? (
+                                <label className="boutonItem centrer"><Bouton name="Suivant" onClick={()=>{handleNextQuestion(); }} /></label>
                               ) : (
-                                <p style={{width:"40%",marginLeft:"40%",position:"relative"}} className="centrer"><Bouton name="terminer" /></p>
-                              )}
-                              {nombreDeQuestions>0&&( <div  style={{position:"absolute",width:"100%"}} >{ListeQuestions()}</div>)}
+                                <p  className="boutonItem centrer"><Bouton name="terminer" onClick={handleLasttQuestion}/></p>
+                              )}</div>
+                              </div>
+                              <div style={{marginLeft:"0%", marginTop:"5%"}}>
+                              {nombreDeQuestions>0&&( <div  style={{position:"absolute",width:"87.5%"}} >{ListeQuestions()}</div>)}
+                              </div>
                               {/* <QuestionListe n={nombreDeQuestions} renderType={myRenderType} /> */}
                             {/* {renderForm(questions[currentQuestion])} */}
                             </div>
@@ -417,52 +454,3 @@ let QuestionListe = (props: { n: number; renderType: any }) => {
     )
 }
 export default CreerQestion;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//  {/* <div>
-//                 <h1>Questions</h1>
-//                 <div>
-//                 <label>Question:</label>
-                
-               
-//                 <select
-//                      id="type"
-//                     name="type"
-//                      value={Question.type}
-//                      onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
-//                                                  if (event && event.target) {
-//                                                 setQuestion({ ...Question, type: event.target.value})
-//                      }}} 
-//                      className="Select form-control" required>
-//                      <option value="" >Type de question</option>
-//                      <option value="text">Text</option>
-//                      <option value="select">Select</option>
-//                 </select>
-
-
-//                   {showButton&&(  <div style={{width:"50%",marginLeft:"25%", marginTop:"2%"}} className="centrer">
-//                         <Bouton name="SUIVANT" onClick={()=>{setShowInput(true); console.log(Question); setShowButton(false)}}/>
-//                         </div>)}
-
-
-//                 {showInput&&(
-                    
-//                     <div>
-//                         {Input}
-//                     </div>
-//                 )}
-                
-//             </div>
-//             </div> */}
