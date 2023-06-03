@@ -9,27 +9,20 @@ const QUESTION: question[]=[
       Type:'',
       PointQuestion:0
   },
-  // {
-  //     Enonce:'Quelle est la capitale du Cameroun ?',
-  //     Reponse:'Yaounde',
-  //     Type:'text'
-  // },
-  // {
-  //     Enonce:'Quelle est la capitale du Cameroun ?',
-  //     Reponse:'Yaounde',
-  //     Type:'select',
-  //     choix:['yaounde','douala','limbe']
-  // },
+
 ]
 
-const Questionnaire: questionnaire[]=[
-  {chapitre:'Géographie',
+const QuestionnaireFile: questionnaire[]=[
+  {
+    dateEvaluation: '',
+    Duree: '',
+    chapitre:'Géographie',
   nombreDeQuestions:3,
   questions:QUESTION
 }
 ];
 
-export {Questionnaire, QUESTION};
+export {QuestionnaireFile, QUESTION};
 
 
 

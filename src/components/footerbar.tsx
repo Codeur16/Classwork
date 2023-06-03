@@ -3,7 +3,7 @@ import "./style/footerbar.css";
 import logo from '../pages/image/logobg.png';
 
 
-const footer: FunctionComponent = () => {
+const Footer: FunctionComponent = () => {
   return (
     <div className="pg-footer">
     <footer className="footer">
@@ -138,5 +138,5 @@ const footer: FunctionComponent = () => {
   );
 };
 
-export default footer;
+export default Footer;
  

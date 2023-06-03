@@ -1,31 +1,86 @@
-import React,{ FunctionComponent} from "react";
+import React,{ FunctionComponent, useEffect, useState} from "react";
 import Navbar from "../components/navbar";
 import BoutonLarge from '../components/bouton-large'
 import '../style/dashboard.css';
 import Bouton from "../components/Bouton";
 import Footer from "../components/footerbar";
-import { Link } from "react-router-dom";
+import { Link, match } from "react-router-dom";
 // const [showSidebar, setShowSidebar] = useState(false);
-const dashboard:FunctionComponent =()=>{
-    //const user
+interface CoursModel{
+     id: number,
+     title: string,
+     instructions: string,
+     time: string,
+     status: string,
+     expiration: string,
+}
+const Dashboard:FunctionComponent =()=>{
+   
 
-    // const handleButtonClick = () => {
-    //   setShowSidebar(!showSidebar);
-    // };
-    // .Image{
+
+    const [Cours, setCours]=useState<CoursModel>({
+        id: 0,
+        title: '',
+        instructions: '',
+        time: '',
+        status: '',
+        expiration: '',
+    });
+    // useEffect(()=>{
+         
+        //     const fetchData = async () => {
+        //     try{
+        //         const response = await fetch('https://example.com/data.json',{
+        //             method: 'GET',
+        //             headers: {
+        //               'Content-Type': 'application/json',
+        //               'Access-Control-Allow-Origin': '*',
+        //             },
+        //             // body: JSON.stringify(user),
+        //           });
+        //         const json = await response.json();
+        //         alert("ok")
+        //         const Cours = json;
+        //         console.log(Cours);
+        //         alert(Cours);
+        //     }
+        //     catch{
+        //         alert("error");
+        //         console.log("error");
+        //     }
+        // }
+
+        const fetchData = async (cours:CoursModel) => {
+            try {
+              const response = await fetch('http://192.168.43.196:8080/api/v1/teacher/1/classe/');
+              const json = await response.json();
+              alert("ok")
+               cours={
+                id: json.id,
+                title: json.title,
+                instructions: json.instructions,
+                time: json.time,
+                status: json.status,
+                expiration: json.expiry,
+              }
+              console.log(cours);
+              alert(cours);
+            } catch (error) {
+            //   alert("error");
+              console.log("error");
+            }
+          }
+          
+
+            fetchData (Cours);
+   
     
-    //     width: 20%;
-    //     position: relative;
-    //     top: 58px;
-    //     left: 10px;
-    //     color: aliceblue;
-    //     margin-top:-10px;
-    //     z-index: 1;
-    //   }
+
     return(
         <div className="body">
 {/* NAVBAR */}
-           <div> <nav style={{position:"relative", zIndex:"2" }} ><Navbar title="Tableau de bord" Evaluation="Evaluation"/></nav></div>
+           <div> <nav style={{position:"relative" }} >
+            <Navbar title="Tableau de bord" Evaluation="Evaluation"/></nav>
 
            <div className="menu-box" >
                 <div className="menu container-fluid d-flex " >
@@ -35,6 +90,7 @@ const dashboard:FunctionComponent =()=>{
                     <div className="menu-item  justify-content-center"><Link to="/statistique"><BoutonLarge name="STATISTIQUE" image=" https://img.icons8.com/ios-filled/50/FFFFFF/group-of-projects.png" alt="img"/></Link></div>
                 </div>
            </div>
+        </div>  
         <div className="Body d-flex">
             <div className="Body-left">
                     <section id="cours" className="cours">
@@ -115,31 +171,23 @@ const dashboard:FunctionComponent =()=>{
             <div className="Body-rigth">
                 <div className="content">
                     <h1>Statistiques</h1>
-            <p>
-Attention, une balise est un élément block par défaut, si vous voulez centrer un autre élément comme une baliseil faudra lui rajouter la propriété CSS display: block.
-Dans les exemples plus bas, les propriétés CSS comme width etc ne seront pas répétées, elles seront sous entendues.
-
- 
-
-Display : inline-block
-Cette fois-ci, pas besoin de margin: auto :
-
-
-CSS
-text-align: center; sert habituellement à centrer du texte, des éléments inline en somme. Inline-block est aussi affecté par cette cette propriété.
-
-
-Trouvez le meilleur développeur web sur Codeur.com
-
-Vos premiers devis en 15 minutes
-
-Gratuit et sans obligation
-
-Déjà plus de 75 000 clients
-
-Trouver un freelance
- 
-!</p> </div>
+                    <div className="Container2Left-dash">
+                                    <div className="codeCours-dash">
+                                        <h5>Nombre de devoirs</h5>
+                                        <p><span className="SPAN">En attente:</span>5</p>
+                                        <p><span className="SPAN">Remis:</span>10</p>
+                                    </div>
+                                    <div className="codeCours-dash">
+                                        <h5>Nombre Evaluation</h5>
+                                        <p><span className="SPAN">En attente:</span>5</p>
+                                        <p><span className="SPAN">Remis:</span>10</p>
+                                    </div>
+                                    <div className="codeCours-dash">
+                                        <h5>Nombre cours</h5>
+                                        <p>Cours suivie</p>
+                                    </div>
+                                </div>
+                </div>
             </div>
 
            </div>
@@ -147,4 +195,4 @@ Trouver un freelance
         </div>
     )
 }
-export default dashboard;
+export default Dashboard;

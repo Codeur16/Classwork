@@ -1,14 +1,17 @@
-import React from 'react';
+import React,{FunctionComponent} from "react";
+import Navbar from "../../components/navbar";
 
 
-const QuizApp = () => {
-  
-    return (
-      <div>
+const Devoirs:FunctionComponent=()=>{
+     return(
+        <div>
+            <nav><Navbar title="Devoirs" Evaluation={"Devoirs"}/> </nav>
+            <div className="content">
+                <div className="notcours centrer">
+                
+                </div>
+            </div>
         </div>
-    );
-  };
-
-  
-
-export default QuizApp;
+     );
+}
+export default Devoirs;

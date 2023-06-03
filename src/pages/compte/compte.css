@@ -1,0 +1,218 @@
+mise en forme des données du formulaire
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+.monformulaire .content {
+    width: 671px;
+    height: 500px;
+    left: 339px;
+    margin-top: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: azure;
+}
+
+.monformulaire .content h1 {
+    font-family: 'Laila', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 46px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 50px;
+
+    color: #22A2E3;
+
+}
+
+.monformulaire .content label,
+.monformulaire .content input {
+    display: block;
+    margin-bottom: 7px;
+}
+
+.monformulaire .content div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 7px;
+}
+
+.monformulaire .content input {
+    width: 611.97px;
+    height: 42.29px;
+    text-align: center;
+    background: #85CCF080;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.monformulaire .content input#name {
+    background-image: url('./img/Account.png');
+    background-repeat: no-repeat;
+    background-size: 44.63px 36.12px;
+    background-position: left center;
+    padding-left: 50px;
+}
+
+.monformulaire .content input#matricule {
+    background-image: url("./img/IDVerified.png");
+    background-repeat: no-repeat;
+    background-size: 39.82px 30.85px;
+    background-position: left center;
+    padding-left: 50px;
+}
+
+.monformulaire .content input#mail {
+    background-image: url('./img/EmailSign.png');
+    background-repeat: no-repeat;
+    background-size: 39.82px 30.85px;
+    background-position: left center;
+    padding-left: 50px;
+}
+
+.monformulaire .content input#role {
+    background-image: url('./img/ConnectedPeople.png');
+    background-repeat: no-repeat;
+    background-size: 39.82px 30.85px;
+    background-position: left center;
+    padding-left: 50px;
+}
+
+.monformulaire .content input#motpasse {
+    background-image: url('./img/AddKey.png');
+    background-repeat: no-repeat;
+    background-size: 39.82px 30.85px;
+    background-position: left center;
+    padding-left: 50px;
+}
+
+
+
+.monformulaire .content button {
+    color: white;
+    background-color: #22A2E3;
+    border-radius: 5px;
+    width: 193.63px;
+    height: 38.55px;
+    margin: 0 5px;
+    border: 1px solid lightgray;
+
+}
+
+.monformulaire .content .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.profileimage {
+    width: 50%;
+    height: 50%;
+    margin-top: -20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    padding-top: 0%;
+    background-color: none;
+    border-radius: 120px;
+   
+
+}
+
+.imageprofile {
+    width: 50%;
+    height: 50%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nameperson {
+
+    font-family: 'Laila', sans-serif;
+    width: 150%;
+}
+
+.roleperson {
+
+    color: #22A2E3;
+    font-size: 40px;
+    font-weight: 300;
+    padding-left: 60px;
+}
+.BODY{
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+}
+
+.Profile{
+    width: 100%;
+    height: 200px;
+    margin-bottom: 10%;
+    background-color: none;
+    display: flex;
+    margin-top: -7%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.Nom{
+    font-display: flex;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Nom .nom{
+    font-size: 120%;
+    font-weight: 600;
+    width: 100%;
+} 
+.Nom .role{
+    color: #22A2E3;
+    text-transform: capitalize;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+.Img{
+width: 100px;
+height: 100px;
+border-radius: 100%;
+background-color:darkgray;
+background-image: url("../image/loico1.png");
+background-size: cover;
+background-origin:border-box;
+background-position: center;
+}

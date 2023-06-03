@@ -27,13 +27,18 @@ class questionnaire{
 
     chapitre: String;
     nombreDeQuestions: number;
+    dateEvaluation:string;
+    Duree:string;
     questions:question[];
     constructor(
-       
+        dateEvaluation: '',
+        Dure: '',
         chapitre:String='',
         nombreDeQuestions:number=0,
         questions: question[] = []
     ){
+        this.Duree=Dure;
+        this.dateEvaluation=dateEvaluation;
         this.chapitre = chapitre;
         this.nombreDeQuestions = nombreDeQuestions;
         this.questions= questions; 

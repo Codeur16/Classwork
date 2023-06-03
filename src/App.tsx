@@ -11,10 +11,10 @@ import cours from './pages/cours/cours-1';
 import devoirs from './pages/devoirs/devoir-1';
 import compte from './pages/compte/compte-1';
 import help from './pages/help';
-import statistique from './pages/statistique/statistique-1'
-// import Quiz from './components/quizForm';
-// import Input2 from './components/input2';
-// import QuestionComponent from './pages/Evaluation/QuestionComponent';
+import statistique from './pages/statistique/statistique-1';
+import CreerCours from './pages/cours/creerCours';
+import CoursDetails from './pages/cours/coursDetails';
+import Notification from './pages/notification';
 
 const App: FunctionComponent = () => {
 
@@ -33,8 +33,9 @@ const App: FunctionComponent = () => {
   <Route exact path="/compte" component={compte} />
   <Route exact path="/help" component={help} />
   <Route exact path="/statistique" component={statistique} />
-  {/* <Route exact path="/quiz" component={Quiz} /> */}
-  {/* <Route exact path="/quiz-form" component={Question} /> */}
+  <Route exact path="/CreerCours" component={CreerCours} />
+  <Route exact path="/coursDetails" component={CoursDetails} />
+  <Route exact path="/Notification" component={Notification} />
 
   
    <Route component={PageNotFound} />

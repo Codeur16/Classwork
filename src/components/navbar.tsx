@@ -1,7 +1,7 @@
-import React,{ FunctionComponent, useState} from "react";
+import React,{ FunctionComponent, useEffect, useState} from "react";
 import logo from "../pages/image/icons8-menu-48.svg";
 import user from '../pages/image/icons/icons8-utilisateur-100.png';
-import add from '../pages/image/icons/icons8-dupliquer-96.png';
+import Add from '../pages/image/icons/icons8-dupliquer-96.png';
 import alert from '../pages/image/icons/icons8-rappels-de-rendez-vous-100.png';
 import { Link } from "react-router-dom";
 import "./style/navbar.css"
@@ -10,13 +10,26 @@ import Sidebar from "./style/sidebar";
 interface props{
     title:string;
     Evaluation:string;
+    add?:boolean;
+    notif?:boolean;
+    compte?:boolean;
 }
-const Navbar: FunctionComponent<props>=({title, Evaluation})=>{
+const Navbar: FunctionComponent<props>=({title, Evaluation, add, notif, compte})=>{
     const [show, setShow]=useState(false);
+    const [showAdd, setShowAdd]=useState<boolean>(true);
+    const [showNotif, setShowNotif]=useState<boolean>(true);
+    const [showCompte, setShowCompte]=useState<boolean>(true);
     const hadleShow=()=>{
         setShow(!show);
     }
+    const handleShowAdd=()=>{
+        if(add===false){setShowAdd(add);}
+        if(notif===false){setShowNotif(notif);}
+        if(compte===false) {setShowCompte(compte);}}
 
+        useEffect(() => {
+            handleShowAdd();
+          });
     return(
         <div className="body" style={{position:"absolute"}} >
 {/* NAVBAR */}
@@ -39,9 +52,15 @@ const Navbar: FunctionComponent<props>=({title, Evaluation})=>{
                         <h3 className="  dflex-grow-1 text-custom"> {title}</h3>
                     </div>
                     <div className="img-box center-contenu " style={{width:"30%",textAlign:"right"}}>
-                        <div><Link to={"/"+Evaluation}><img title={"Ajouter "+Evaluation} src={ add} alt="notif" className="icon1 "  /></Link></div>
-                       <div> <Link to="/notification"><img title="notification" src={ alert} alt="notif" className="icon2" /></Link></div>
-                       <div> <Link to="/compte"><img title="compte" src={ user} alt="notif" className="icon3" /></Link></div>
+                        <div
+                         className={ showAdd===false?"off":"" }
+                         ><Link to={"/"+Evaluation}><img title={"Ajouter "+Evaluation} src={ Add} alt="notif" className="icon1 "  /></Link></div>
+                        <div 
+                        className={ showNotif===false?"off":"" }
+                        ><Link to="/notification"><img title="notification" src={ alert} alt="notif" className="icon2" /></Link></div>
+                        <div 
+                        className={ showCompte===false?"off":"" }
+                        > <Link to="/compte"><img title="compte" src={ user} alt="notif" className="icon3" /></Link></div>
                     </div>
                 </div>
             </nav>

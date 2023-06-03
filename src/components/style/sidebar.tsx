@@ -2,6 +2,7 @@ import React, { FunctionComponent, useState } from 'react';
 import "../style/sidebar.css";
 import logo from '../../pages/image/logobg.png'
 import { Link } from 'react-router-dom';
+import notif from '../../pages/image/icons/icons8-rappels-de-rendez-vous-100.png';
 // import "../js/sidebar.js"
 const Sidebar: FunctionComponent = () => {
     const [show, setShow]=useState(true);
@@ -47,6 +48,10 @@ return(
                 <Link to="/"><div className='sidebar-item'>
                     <div className='sidebar-item-icon'><img width="35" height="35" src="https://img.icons8.com/fluency/48/share--v2.png" alt="share--v2"/></div>
                     <div className='sidebar-item-title'> Partager</div>
+                </div></Link>
+                <Link to="/Notification"><div className='sidebar-item'>
+                    <div className='sidebar-item-icon'><img width="35" height="35" src={notif} alt="share--v2"/></div>
+                    <div className='sidebar-item-title'> Notification</div>
                 </div></Link>
                 {/* <Link to="/"><div className='sidebar-item'>
                     <div className='sidebar-item-icon'><img width="35" height="35" src="https://img.icons8.com/fluency/48/settings.png" alt="settings"/></div>

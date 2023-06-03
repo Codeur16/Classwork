@@ -19,6 +19,21 @@ const Singin:FunctionComponent =()=>{
     const [user, setUser]=useState<User>({  email: '', password:''});
     const history = useHistory();
 
+
+    const handleLocalStorage = {
+      set: (key: string, value: string) => {
+        localStorage.setItem(key, value);
+      },
+      get: (key: string) => {
+        return localStorage.getItem(key);
+      },
+      remove: (key: string) => {
+        localStorage.removeItem(key);
+      },
+    };
+    handleLocalStorage.set("id","LOCALVALUE");
+    console.log(handleLocalStorage.get("id"))
+
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
@@ -26,6 +41,7 @@ const Singin:FunctionComponent =()=>{
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
             },
             body: JSON.stringify(user),
           });
@@ -37,6 +53,7 @@ const Singin:FunctionComponent =()=>{
           // Handle successful login
           const data = await response.json();
           handleLocalStorage.set("token", data.token);
+          handleLocalStorage.set("id",data.id);
           history.push('/dashboard');
         } catch (error) {
           // Handle login failure
@@ -48,18 +65,7 @@ const Singin:FunctionComponent =()=>{
         setUser({email: '',  password: '' });
       };
     
-      const handleLocalStorage = {
-        set: (key: string, value: string) => {
-          localStorage.setItem(key, value);
-        },
-        get: (key: string) => {
-          return localStorage.getItem(key);
-        },
-        remove: (key: string) => {
-          localStorage.removeItem(key);
-        },
-      };
-
+      
     return(
         <div className="body">
         <div className="container-fluid center bg-white" style={{ height:"100%"}}>
@@ -171,6 +177,9 @@ const Singin:FunctionComponent =()=>{
                             
                             </div>
                         </form>
+                        <div className="SE-Connecter">
+                         <Link to="/signin"> <p className="ITem" style={{ fontWeight:"600", padding:"1%",textDecoration:"underline"}}> S'inscrire</p></Link>
+                        </div>
                     </div>
                 </div>
             </div>

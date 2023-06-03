@@ -10,48 +10,126 @@ import ico3 from "../image/icons/icons8-étudiant-homme-30.png";
 import { Link } from 'react-router-dom';
 
 interface User {
-    nom: string;
+    firstName: string;
+    lastName: string;
     email: string;
-    matricule: string;
+    registrationNumber: string;
     role: string;
     password: string;
   }
 
 const Singin:FunctionComponent =()=>{
-    const [user, setUser]=useState<User>({ nom: '', email: '', matricule: '', role:'', password:''});
-    //const [form, setForm]=useState({ nom: '', email: '', matricule: '', role:'', password:''})
+    const [user, setUser]=useState<User>({ firstName: '',lastName:'', email: '', registrationNumber: '', role:'', password:''});
+    //const [form, setForm]=useState({ firstName: '', email: '', registrationNumber: '', role:'', password:''})
 
 
-    
-    const handleSubmit = async(event: React.FormEvent<HTMLFormElement>)=> {
-        event.preventDefault();
-        try {
-            const response = await fetch('/api/login', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(user),
-            });
-      
-            if (!response.ok) {
-              throw new Error('Failed to login');
-            }
-      
-            // Handle successful login
-            alert("Enregentré !");
-          } catch (error) {
-            // Handle login failure
-            // <Popup content={"Failed to sign"} handleClose={()=>{togglePopup()}}/>
-            alert("Echec de l'enregistrement! Serveur deconnecté .")
-            console.error(error);
-          }
-        
-        
-        console.log(user);
-        setUser({ nom: '', email: '', matricule: '', role:'', password:''});
-        console.log(user)
+    const handleLocalStorage = {
+        set: (key: string, value: string) => {
+          localStorage.setItem(key, value);
+        },
+        get: (key: string) => {
+          return localStorage.getItem(key);
+        },
+        remove: (key: string) => {
+          localStorage.removeItem(key);
+        },
       };
+//   handleLocalStorage.set("id","LOCAL-VALUE");
+      console.log(handleLocalStorage.get("id"))
+    // const handleSubmit = async(event: React.FormEvent<HTMLFormElement>)=> {
+    //     event.preventDefault();
+    //     try {
+    //         const response = await fetch('http://192.168.43.169:8080/api/v1/student', {
+    //           method: 'POST',
+    //           headers: {
+    //             'Content-Type': 'application/json',
+    //             'Access-Control-Allow-Origin' ,
+    //           },
+    //           body: JSON.stringify(user),
+    //         });
+      
+    //         if (!response.ok) {
+    //           throw new Error('Failed to signin');
+    //         }
+      
+    //         // Handle successful login
+    //         alert("Enregintré !"+user);
+    //       } catch (error) {
+    //         // Handle login failure
+    //         // <Popup content={"Failed to sign"} handleClose={()=>{togglePopup()}}/>
+    //         alert("Echec de l'enregistrement! Serveur deconnecté .")
+    //         console.error(error);
+    //       }
+        
+        
+    //     console.log(user);
+    //     setUser({ firstName: '',lastName:'', email: '', registrationNumber: '', role:'', password:''});
+    //     console.log(user)
+    //   };
+
+ const signin="http://192.168.254.169:8080/api/v1/auth/teacher/signup";
+
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        // const user = { firstName: '', lastName: '', email: '', registrationNumber: '', role: '', password: '' };
+        try {
+          const response = await fetch(signin, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              // 'Access-Control-Allow-Origin': '*',
+            },
+            body: JSON.stringify(user),
+          });
+      
+          if (!response.ok) {
+            throw new Error('Failed to signin');
+          }
+      
+          // Handle successful login
+          alert("Enregistré !" + JSON.stringify(user));
+        } catch (error) {
+          // Handle login failure
+          alert("Echec de l'enregistrement! Serveur déconnecté.");
+          console.error(error);
+        }
+      
+        setUser({ ...user });
+      };
+      
+
+
+
+
+
+
+
+
+
+
+    //   registrationNumber": "jkkjjkjk44",
+    //   "firstName": "roger",
+    //   "lastName": "NGinga",
+    //   "email": "mlml@gmail.com",
+    //   "password": "lsdsdfsdfw",
+    //   "role": "Student"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     return(
         <div className="body">
@@ -92,11 +170,11 @@ const Singin:FunctionComponent =()=>{
                                 name="name"
                                 id="name"
                                     type="text" 
-                                    label="Nom et Prenom" 
-                                    value={(user.nom)}
+                                    label="Nom et prenom" 
+                                    value={(user.firstName)}
                                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                                         if (event && event.target) {
-                                        setUser({ ...user, nom: event.target.value})
+                                        setUser({ ...user, firstName: event.target.value})
                                       }}}
                                     
                                       length={5}
@@ -119,14 +197,14 @@ const Singin:FunctionComponent =()=>{
                                  </div>
                                      <div className="nom" >
                                          <Input 
-                                            name="matricule"
-                                            id="matricule"
+                                            name="registrationNumber"
+                                            id="registrationNumber"
                                             type="text" 
                                             label="Matricule" 
-                                            value={(user.matricule)}
+                                            value={(user.registrationNumber)}
                                             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                                                 if (event && event.target) {
-                                                setUser({ ...user, matricule: event.target.value})
+                                                setUser({ ...user, registrationNumber: event.target.value})
                                             }}} 
                                             length={5}/>
                                      </div>
@@ -166,6 +244,9 @@ const Singin:FunctionComponent =()=>{
                             
                             </div>
                         </form>
+                        <div className="SE-Connecter">
+                         <Link to="/login"> <p className="ITem" style={{ fontWeight:"600", padding:"1%",textDecoration:"underline"}}> Se connecter</p></Link>
+                        </div>
                     </div>
                 </div>
             </div>

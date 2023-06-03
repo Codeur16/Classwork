@@ -159,6 +159,18 @@ color: #22A2E3;
         left: 5%;
     top: 36%;
     }
+    .SE-Connecter p{
+        margin-top: 5%;
+        color: #22A2E3;
+        
+    }
+    .SE-Connecter{
+      display: block;
+        
+    }
+    .SE-Connecter p:hover{
+        color:rgba(0, 0, 0, 0.5);
+    }
 }
 
 /* formulaire*/
@@ -187,4 +199,7 @@ color: #22A2E3;
     border-radius: 0%;
     width:80%;
     color: #22A2E3;
+}
+.SE-Connecter p:hover{
+   display: none;
 }

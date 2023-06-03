@@ -216,3 +216,6 @@ height: 50%;
  /* FIXED LEFT SITEBAR */
 
  
+ .off{
+    display: none;
+ }
